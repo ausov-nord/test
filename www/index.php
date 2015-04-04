@@ -1,14 +1,9 @@
 <?php
 
-set_include_path(
-    get_include_path()
-    .PATH_SEPARATOR.__DIR__ .'/core'
-);
+require_once __DIR__.'/models/articles.php';
 
-function autoload($className){
-    require_once  $className.'.php';
-}
+$items = articles_get_all();
 
-spl_autoload_register('autoload');
+require_once __DIR__.'/views/articles.php';
 
-
+//require_once __DIR__.'/views/form.php';
